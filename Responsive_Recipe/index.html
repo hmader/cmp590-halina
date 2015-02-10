@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+
+    <!-- source for below script: 
+http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            $(".layer-front").css({
+                'opacity': 1 - (($(this).scrollTop()) / 300)
+            });
+        });
+    </script>
+
+
+
+
+
+</head>
+
+<body>
+    <section class="allContent">
+        <div class="first">
+            <div class= containerFirst>
+                <div class="layer layer-back">
+                    <img src="images/finalDog.JPG" alt="Photo of Nogales Dog">
+                </div>
+                <div class="layer layer-front">
+                    <img src="images/titlePhoto.png" alt="Nogales Dog">
+                </div>
+            </div>
+        </div>
+
+        <section class="description">
+            <p>
+                Growing up, I would often hear my father recount the years he lived in Arizona and the numerous trips he made over the border to Mexico. Somehow the subject of his recollections always found its way back to the food - the sweet corn tamales, chicken smothered in rich mole sauce, and oozy cheese-stuffed peppers to name a few. The Nogales Dog was a greasy, salty, fatty, delicious sandwich that he and his companions would pick up from street vendors in the Arizona border-town of Nogales to refuel after an evening of escapades. We've recreated this glorious sandwich with some essential additions <i>(i.e. fried egg)</i> and provided the recipe below.
+            </p>
+
+        </section>
+
+        <br>
+        <main>
+            <header>
+                <img class="header-photo" src="images/header-photo-1.jpg" alt="Header Photo">
+            </header>
+
+            <section class="container">
+                <section class="less">
+                    <p><b>INGREDIENTS</b>
+                    </p>
+                    <ul>
+                        <li>Hot dog or Sausage</li>
+                        <li>Bacon</li>
+                        <li>1 Egg</li>
+                        <li>1 Jalepeno</li>
+                        <li>1/2 Onion, sliced</li>
+                        <li class = "r">Bun</li>
+                        <li class = "r">Mayonnaise</li>
+                        <li class = "r">Cooked Pinto Beans</li>
+                        <li class = "r">Hot Sauce &amp; Salsa</li>
+                    </ul>
+                </section>
+
+                <section class="more">
+                    <p><b>PREP.</b>
+                    </p>
+                    <ol>
+                        <li>
+                            <b>1. </b>Dry roast the jalepeno and grill the sliced onion until both are sufficently blackened; Remove &amp; discard the seeds from the jalepeno and cut into strips. Set both the onion &amp; pepper aside.
+                        </li>
+                        <p></p>
+                        <li>
+                            <b>2. </b>Wrap the bacon around the hot dog or sausage; Cook this in a cast iron skillet or flat-top grill until the bacon is cooked &amp; crisp to your liking.
+                        </li>
+                        <p></p>
+                        <li>
+                            <b>3. </b>Remove the hot dog, and cook the egg in the skillet until whites are cooked but yolk is still mostly runny.
+                        </li>
+                        <p></p>
+                        <li>
+                            <b>4. </b>Set aside the egg, and toast the bun in the same skillet or grill until golden
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="more">
+                    <p><b>ASSEMBLY</b>
+                    </p>
+                    <ol>
+                        <li>
+                            <b>1. </b>Spread as much mayonnaise on the toasted buns as you see fit
+                        </li>
+                        <p></p>
+                        <li>
+                            <b>2. </b>Add the bacon dog to the bun; Spoon over some pintos, the onions, and jalepeno; Top with the egg - recommended cut in half - and finish off with the salsas
+                        </li>
+                    </ol>
+                </section>
+            </section>
+        </main>
+    </section>
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

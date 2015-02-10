@@ -1,0 +1,156 @@
+* {
+ box-sizing: border-box;   
+}
+
+.all-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+b {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.description p {
+    padding: 0 10% 0 10%;
+    color: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    line-height: 145%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-photo {
+    width: 100%;
+}
+
+.layer-back img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+.layer-front img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.less {
+    width: 20%;
+    padding: 5%;
+}
+
+main {
+    height: 100vh;
+    margin: 0 0 0 0;
+}
+
+.more {
+    width: 40%;
+    padding: 5%;
+}
+
+ol,
+ul {
+    display: block;
+    list-style-type: none;
+    padding-left: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    line-height: 145%;
+}
+
+p b {
+    color: #A0953F;
+}
+/*
+section {
+ width: 100%;
+      -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+
+section.description {
+    display: flex;
+    height: 100vh;
+    background-color: #C4B558;
+    justify-content: center;
+    align-items: center;
+}
+
+section.first {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.containterFirst {
+    position: absolute;
+}
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+
+    .description {
+        font-size: .95em;
+        padding-left: 2%;
+        padding-right: 2%;
+        height: auto;
+    }
+    
+    .container {
+     flex-direction: column;
+    }
+    
+    .container section {
+     width: 100%;   
+        padding: 10%;
+ 
+
+    }
+    
+    .container p {
+     text-align: center;   
+    }
+    
+    .less {
+     text-align: center;   
+    }
+}
+/* Intermediate */
+@media only screen and (max-width: 768px) {}
+/* Wide */
+@media only screen and (max-width: 1140px) {}
+
+
+/* ==========================================================================
+   ========================================================================== */
