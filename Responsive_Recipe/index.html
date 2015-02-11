@@ -13,52 +13,25 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
-
-    <!-- source for below script: 
-http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        $(window).scroll(function () {
-            $(".layer-front").css({
-                'opacity': 1 - (($(this).scrollTop()) / 300)
-            });
-            
-            console.log($(this).scrollTop());
-        });
-    </script>
-  <!--  <script>
-       $(window).scroll(function() {
-           while($(window).scrollTop() < $(".layer-front").height()) {
-               $(".allContent").css({position: "fixed"});
-           }
-          $(".allContent").css({position: "absolute"}); 
-       });
-    </script>
--->
-
-
-
-
 </head>
 
 <body>
-    <section class="allContent">
-        <div class="first">
-            <div class=c ontainerFirst>
-                <div class="layer layer-back">
-                    <img src="images/finalDog.JPG" alt="Photo of Nogales Dog">
-                </div>
-                <div class="layer layer-front">
-                    <img src="images/titlePhoto.png" alt="Nogales Dog">
-                </div>
+<section class="mainContent">
+    <div class="first">
+        <div class="containerFirst">
+            <div class="layer layer-back">
+                <img src="images/finalDog.JPG" alt="Photo of Nogales Dog">
+            </div>
+            <div class="layer layer-front">
+                <img src="images/titlePhoto.png" alt="Nogales Dog">
             </div>
         </div>
-
+    </div>
+    
         <section class="description">
             <p>
-                Growing up, I would often hear my father recount the years he lived in Arizona and his numerous trips over the border to Mexico. Somehow the subject of his recollections always found its way back to the food - the sweet corn tamales, chicken smothered in rich mole sauce, and oozy cheese-stuffed peppers to name a few. The Nogales Dog was a greasy, salty, fatty, delicious sandwich that he and his companions would pick up from street vendors in the Arizona border-town of Nogales to refuel after an evening of escapades. We've recreated this glorious sandwich with some essential additions <i>(i.e. fried egg)</i> and provided the recipe below.
+                Growing up, I would often hear my father recount the years he lived in Arizona and his numerous trips over the border to Mexico. Somehow the subject of his recollections always found its way back to the food - the sweet corn tamales, chicken smothered in rich mole sauce, and oozy cheese-stuffed peppers - to name a few. The Nogales Dog was a greasy, salty, fatty, delicious sandwich that he and his companions would pick up from street vendors in the Arizona border-town of Nogales to refuel after an evening of escapades. We've recreated this glorious sandwich with some essential additions <i>(i.e. fried egg)</i> and provided the recipe below.
             </p>
 
         </section>
@@ -124,8 +97,47 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
         </main>
     </section>
 
+<div class = "mask">
+    <p class = "mask">.</p></div>
+
 
     <script src="js/main.js"></script>
+    <!-- source for below script: 
+http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
+
+    <script>
+        $(window).scroll(function () {
+
+            $(".layer-front").css({
+                'opacity': 1 - (($(this).scrollTop()) / 400)
+            });
+
+            console.log($(this).scrollTop());
+            console.log($(window).scrollTop());
+            console.log($("p.mask").position());
+            
+
+
+            var hite = $(".layer-front").height();
+            
+        if ($(window).scrollTop() < hite) {
+            $(".mainContent").css({
+                position: "fixed"
+            });
+            
+        } else {
+            $(".mainContent").css({
+                position: "absolute",
+                top: hite
+            });
+             $(".layer-front").css({
+                position: "relative"
+            });
+        }
+        });
+    </script>
+
+
 
 </body>
 
