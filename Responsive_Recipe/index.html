@@ -24,9 +24,19 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
             $(".layer-front").css({
                 'opacity': 1 - (($(this).scrollTop()) / 300)
             });
+            
+            console.log($(this).scrollTop());
         });
     </script>
-
+  <!--  <script>
+       $(window).scroll(function() {
+           while($(window).scrollTop() < $(".layer-front").height()) {
+               $(".allContent").css({position: "fixed"});
+           }
+          $(".allContent").css({position: "absolute"}); 
+       });
+    </script>
+-->
 
 
 
@@ -36,7 +46,7 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
 <body>
     <section class="allContent">
         <div class="first">
-            <div class= containerFirst>
+            <div class=c ontainerFirst>
                 <div class="layer layer-back">
                     <img src="images/finalDog.JPG" alt="Photo of Nogales Dog">
                 </div>
@@ -48,12 +58,11 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
 
         <section class="description">
             <p>
-                Growing up, I would often hear my father recount the years he lived in Arizona and the numerous trips he made over the border to Mexico. Somehow the subject of his recollections always found its way back to the food - the sweet corn tamales, chicken smothered in rich mole sauce, and oozy cheese-stuffed peppers to name a few. The Nogales Dog was a greasy, salty, fatty, delicious sandwich that he and his companions would pick up from street vendors in the Arizona border-town of Nogales to refuel after an evening of escapades. We've recreated this glorious sandwich with some essential additions <i>(i.e. fried egg)</i> and provided the recipe below.
+                Growing up, I would often hear my father recount the years he lived in Arizona and his numerous trips over the border to Mexico. Somehow the subject of his recollections always found its way back to the food - the sweet corn tamales, chicken smothered in rich mole sauce, and oozy cheese-stuffed peppers to name a few. The Nogales Dog was a greasy, salty, fatty, delicious sandwich that he and his companions would pick up from street vendors in the Arizona border-town of Nogales to refuel after an evening of escapades. We've recreated this glorious sandwich with some essential additions <i>(i.e. fried egg)</i> and provided the recipe below.
             </p>
 
         </section>
 
-        <br>
         <main>
             <header>
                 <img class="header-photo" src="images/header-photo-1.jpg" alt="Header Photo">
@@ -69,10 +78,10 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
                         <li>1 Egg</li>
                         <li>1 Jalepeno</li>
                         <li>1/2 Onion, sliced</li>
-                        <li class = "r">Bun</li>
-                        <li class = "r">Mayonnaise</li>
-                        <li class = "r">Cooked Pinto Beans</li>
-                        <li class = "r">Hot Sauce &amp; Salsa</li>
+                        <li class="r">Bun</li>
+                        <li class="r">Mayonnaise</li>
+                        <li class="r">Cooked Pinto Beans</li>
+                        <li class="r">Hot Sauce &amp; Salsa</li>
                     </ul>
                 </section>
 

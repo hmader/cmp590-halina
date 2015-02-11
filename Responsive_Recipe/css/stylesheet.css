@@ -120,13 +120,6 @@ section.first {
 /* Mobile */
 @media only screen and (max-width: 600px) {
 
-    .description {
-        font-size: .95em;
-        padding-left: 2%;
-        padding-right: 2%;
-        height: auto;
-    }
-    
     .container {
      flex-direction: column;
     }
@@ -145,6 +138,15 @@ section.first {
     .less {
      text-align: center;   
     }
+    
+        .description {
+        font-size: .95em;
+        padding-left: 2%;
+        padding-right: 2%;
+        height: auto;
+        text-align: left;
+    }
+    
 }
 /* Intermediate */
 @media only screen and (max-width: 768px) {}
