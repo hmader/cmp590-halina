@@ -98,7 +98,8 @@
     </section>
 
 <div class = "mask">
-    <p class = "mask">.</p></div>
+    <p class = "mask">.</p>
+    </div>
 
 
     <script src="js/main.js"></script>
@@ -109,11 +110,10 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
         $(window).scroll(function () {
 
             $(".layer-front").css({
-                'opacity': 1 - (($(this).scrollTop()) / 400)
+                'opacity': 1 - (($(this).scrollTop()) / 500)
             });
 
             console.log($(this).scrollTop());
-            console.log($(window).scrollTop());
             console.log($("p.mask").position());
             
 
@@ -122,7 +122,8 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
             
         if ($(window).scrollTop() < hite) {
             $(".mainContent").css({
-                position: "fixed"
+                position: "fixed",
+                top: 0
             });
             
         } else {
@@ -130,6 +131,7 @@ http://stackoverflow.com/questions/11462751/fade-out-on-scroll -->
                 position: "absolute",
                 top: hite
             });
+            
              $(".layer-front").css({
                 position: "relative"
             });
