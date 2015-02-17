@@ -1,5 +1,5 @@
 * {
- box-sizing: border-box;   
+    box-sizing: border-box;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 }
 
 .mask {
- position: relative;
+    position: relative;
     top: 0;
     z-index: -1;
     padding: 100vh 0;
@@ -69,7 +69,7 @@ header {
 
 main {
     height: 100vh;
-    margin: 0 0 0 0;
+    margin: 0;
 }
 
 .more {
@@ -117,50 +117,46 @@ section.first {
 .containterFirst {
     position: absolute;
 }
-
-
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-
-
 /* Mobile */
+
 @media only screen and (max-width: 600px) {
 
+    section {
+        min-height: 100vh;
+    }
     .container {
-     flex-direction: column;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-    
     .container section {
-     width: 100%;   
+        width: 100%;
         padding: 10%;
- 
-
+        align-items: center;
+        justify-content: center;
     }
-    
     .container p {
-     text-align: center;   
+        text-align: center;
     }
-    
     .less {
-     text-align: center;   
+        text-align: center;
     }
-    
-        .description {
+    .description {
         font-size: .95em;
         padding-left: 2%;
         padding-right: 2%;
         height: auto;
         text-align: left;
     }
-    
 }
 /* Intermediate */
+
 @media only screen and (max-width: 768px) {}
 /* Wide */
+
 @media only screen and (max-width: 1140px) {}
-
-
 /* ==========================================================================
    ========================================================================== */
