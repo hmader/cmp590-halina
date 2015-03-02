@@ -245,4 +245,4 @@ function charFreq(toCount) {
     //---
 }
 
-charFreq("Hey there good lookin'");
+charFreq("*****ccccx**xxxxx**cc");
