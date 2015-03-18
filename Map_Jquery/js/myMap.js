@@ -407,47 +407,6 @@ waypts4 = [
 
 var styles = [
     {
-        featureType: "landscape",
-        elementType: "all",
-        stylers: [
-            {
-                hue: "#00ffe6"
-            },
-            {
-                saturation: -20
-            }
-              ]
-            },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "hue": "#e9ebed"
-            },
-            {
-                "saturation": -78
-            },
-            {
-                "lightness": 67
-            },
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        featureType: "road",
-        elementType: "geometry",
-        stylers: [
-            {
-                lightness: 100
-            },
-            {
-                visibility: "simplified"
-            }
-              ]
-            }, {
         elementType: "labels",
         stylers: [
             {
@@ -462,8 +421,140 @@ var styles = [
                 visibility: "on"
             }
               ]
+            },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#2c2e33"
+            },
+            {
+                "saturation": 7
+            },
+            {
+                "lightness": 19
+            },
+            {
+                "visibility": "on"
             }
-        ];
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "hue": "#ffde00"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ffffff"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ffffff"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#bbc0c4"
+            },
+            {
+                "saturation": -93
+            },
+            {
+                "lightness": 31
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#e9ebed"
+            },
+            {
+                "saturation": -90
+            },
+            {
+                "lightness": -8
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#e9ebed"
+            },
+            {
+                "saturation": 10
+            },
+            {
+                "lightness": 69
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#93d3d7"
+            },
+            {
+                "saturation": -40
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+];
 
 /* ==============================================================================
 =============================================================================== */
@@ -485,10 +576,9 @@ $(document).ready(function(){
 var map = new GMaps({
     el: '#map',
     lat: 39.8282,
-    lng: -98.5795,
+    lng: -96.00,
     zoom: 4,
     draggable: false,
-    scrollwheel: false,
     zoomControl: false,
     panControl: false,
     streetViewControl: false,
@@ -507,7 +597,7 @@ map.drawRoute({
 });
 
 map.drawRoute({
- origin: [40.22, -74.76],
+    origin: [40.22, -74.76],
     destination: [43.07, -89.40],
     waypoints: waypts2,
     travelMode: "driving",
@@ -517,7 +607,7 @@ map.drawRoute({
 });
 
 map.drawRoute({
- origin: [43.07, -89.40],
+    origin: [43.07, -89.40],
     destination: [45.52, -122.68],
     waypoints: waypts3,
     travelMode: "driving",
@@ -527,7 +617,7 @@ map.drawRoute({
 });
 
 map.drawRoute({
- origin: [45.52, -122.68],
+    origin: [45.52, -122.68],
     destination: [34.05, -118.25],
     waypoints: waypts4,
     travelMode: "driving",
