@@ -1,0 +1,166 @@
+/*! Building Interfaces HTML5 template */
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+p {
+ font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+img{
+ display: block;
+    width: 115%;
+    position:absolute;
+    top: -75px;
+    left: -150px;
+    z-index: -1;
+    
+}
+
+h1 { 
+    font-weight: 600;
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+}
+
+h3 { 
+    font-style: italic;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+}
+
+#titles {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 10% 5% 5% 10% ;
+    margin: 0;
+    color: #ffffff;
+}
+
+div {
+ color: white;   
+}
+
+#description {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: flex-start;
+    padding: 10% 5%;
+    margin: 5% 5%;
+   
+}
+
+#description p {
+ width: 100%;   
+    padding: 5% 10%;
+    background: rgba(255, 255, 255, .75); 
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* Mobile */
+
+@media only screen and (min-width: 480px) {}
+/* Intermediate */
+
+@media only screen and (min-width: 768px) {}
+/* Wide */
+
+@media only screen and (min-width: 1140px) {}
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    img {
+        max-width: 100% !important;
+    }
+    @page {
+        margin: 0.5cm;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
