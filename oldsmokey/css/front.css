@@ -1,0 +1,154 @@
+/*! Building Interfaces HTML5 template */
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+body {
+ display: flex;
+    flex-direction: column;
+      font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.half {
+ width: 50%;   
+}
+
+.full {
+    background: red;
+}
+
+.node {
+ height: 100vh;   
+}
+
+.photo{
+height: 90vh;
+    width: 100%;
+}
+
+#blue {
+    background: #333333;
+}
+
+#green {
+   background: #D6D6D6; 
+}
+
+#white {
+    background: #565656;
+    color: black;
+}
+
+#black {
+    background: #222222;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* Mobile */
+
+@media only screen and (max-width: 600px) {}
+/* Intermediate */
+
+@media only screen and (max-width: 960px) {}
+/* Wide */
+
+@media only screen and (min-width: 1140px) {}
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+    
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    
+    thead {
+        display: table-header-group;
+    }
+    
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+    }
+    
+    @page {
+        margin: 0.5cm;
+    }
+    
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

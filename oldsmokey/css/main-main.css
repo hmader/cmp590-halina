@@ -1,0 +1,200 @@
+/*! Building Interfaces HTML5 template */
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5em;
+    padding: 0;
+    margin: 0;
+    
+    background: #F5F5F5;
+}
+
+.pageTitle {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+}
+
+h2{
+ font-weight: 400;
+    color: white;
+    align-self: center;
+    margin-top: 5%;
+}
+
+hr {
+    margin: 0 7% 0 7%;
+}
+
+.content,
+.descrip {
+    width: 100%;
+}
+
+.descrip {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.descrip p {
+ margin: 2% 10%;   
+    text-align: center;
+}
+
+.content {
+    background: #3C3C42;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2% 7%;
+    color: #fff;
+
+}
+
+.hButton {
+   font-size: 1em;
+ padding: .8em 1.5em;
+    margin: 5% 0;
+    background: #F5F5F5;
+    border: 1px solid #3C3C42;
+    border-radius: .5;
+    transition: .5s;
+}
+
+
+form, #form-descrip{    
+    margin: 2% 7%;
+}
+
+.form-name, .form-email, .form-comments {
+ font-size: .8em;   
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #636363;
+}
+
+.form-comments {
+ height: 10em;  
+    align-self: flex-end;
+}
+
+
+.hButton:hover{
+    background: #3C3C42;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.qGroup {
+    display: flex;
+    flex-direction: row;
+    margin: 2% 7%;
+    color: #fff;
+}
+
+.q {
+    align-self: flex-start;
+    width: 40%;
+    padding: 1em;
+}
+
+.a {
+    align-self: flex-end;
+    width: 60%;
+    padding: 1em;
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* Mobile */
+
+@media only screen and (max-width: 600px) {}
+/* Intermediate */
+
+@media only screen and (max-width: 960px) {}
+/* Wide */
+
+@media only screen and (min-width: 1140px) {}
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    img {
+        max-width: 100% !important;
+    }
+    @page {
+        margin: 0.5cm;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
