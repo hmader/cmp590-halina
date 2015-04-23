@@ -10,19 +10,27 @@
  * There are a lot of example functions and tools in here. If you don't
  * need any of it, just remove it. They are meant to be helpers and are
  * not required. It's your world baby, you can do whatever you want.
-*/
+ */
 
 
 /*
  * Get Viewport Dimensions
  * returns object with viewport dimensions to match css in width and height properties
  * ( source: http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript )
-*/
+ */
 function updateViewportDimensions() {
-	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
-	return { width:x,height:y };
-}
-// setting the viewport width
+        var w = window,
+            d = document,
+            e = d.documentElement,
+            g = d.getElementsByTagName('body')[0],
+            x = w.innerWidth || e.clientWidth || g.clientWidth,
+            y = w.innerHeight || e.clientHeight || g.clientHeight;
+        return {
+            width: x,
+            height: y
+        };
+    }
+    // setting the viewport width
 var viewport = updateViewportDimensions();
 
 
@@ -30,14 +38,18 @@ var viewport = updateViewportDimensions();
  * Throttle Resize-triggered Events
  * Wrap your actions in this function to throttle the frequency of firing them off, for better performance, esp. on mobile.
  * ( source: http://stackoverflow.com/questions/2854407/javascript-jquery-window-resize-how-to-fire-after-the-resize-is-completed )
-*/
+ */
 var waitForFinalEvent = (function () {
-	var timers = {};
-	return function (callback, ms, uniqueId) {
-		if (!uniqueId) { uniqueId = "Don't call this twice without a uniqueId"; }
-		if (timers[uniqueId]) { clearTimeout (timers[uniqueId]); }
-		timers[uniqueId] = setTimeout(callback, ms);
-	};
+    var timers = {};
+    return function (callback, ms, uniqueId) {
+        if (!uniqueId) {
+            uniqueId = "Don't call this twice without a uniqueId";
+        }
+        if (timers[uniqueId]) {
+            clearTimeout(timers[uniqueId]);
+        }
+        timers[uniqueId] = setTimeout(callback, ms);
+    };
 })();
 
 // how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
@@ -85,156 +97,410 @@ var timeToWaitForLast = 100;
  * Remember that mobile devices and javascript aren't the best of friends.
  * Keep it light and always make sure the larger viewports are doing the heavy lifting.
  *
-*/
+ */
 
 /*
  * We're going to swap out the gravatars.
  * In the functions.php file, you can see we're not loading the gravatar
  * images on mobile to save bandwidth. Once we hit an acceptable viewport
  * then we can swap out those images since they are located in a data attribute.
-*/
+ */
 function loadGravatars() {
-  // set the viewport using the function above
-  viewport = updateViewportDimensions();
-  // if the viewport is tablet or larger, we load in the gravatars
-  if (viewport.width >= 768) {
-  jQuery('.comment img[data-gravatar]').each(function(){
-    jQuery(this).attr('src',jQuery(this).attr('data-gravatar'));
-  });
-	}
-} // end function
+        // set the viewport using the function above
+        viewport = updateViewportDimensions();
+        // if the viewport is tablet or larger, we load in the gravatars
+        if (viewport.width >= 768) {
+            jQuery('.comment img[data-gravatar]').each(function () {
+                jQuery(this).attr('src', jQuery(this).attr('data-gravatar'));
+            });
+        }
+    } // end function
 
 
 /*
  * Put all your regular jQuery in here.
-*/
-jQuery(document).ready(function($) {
+ */
+jQuery(document).ready(function ($) {
+
+    // Scroll to top
+    $("html, body").animate({
+        scrollTop: 0
+    }, "slow");
+
+    // Collapse cards
+    $('.collapse-card').paperCollapse();
+
+    // Gmaps
+
+    //----------------------------------------------------//     
+    ///---------taking care of the offset-----------------///
+    //----------------------------------------------------//     
+    var shiftedTop = $("#old-history").height() + $(".header").height();
+
+    $(".static").css({
+        top: shiftedTop
+    });
+
+    $(".static").addClass("to-next");
+
+    $(".homepage-photo-column").css({
+        "padding-top": 0
+    });
+
+    $(window).scroll(function () {
+
+    });
+
+
+    ///---------FINISH taking care of the offset---------/// 
+    //----------------------------------------------------//    
+    ///===== Starts static, top: 0 ---> absolute, top scrollTop()
     
-    var holdtop;
+    var waypointstart = new Waypoint ({
+      element: document.getElementById("waypoint-start"), 
+         handler: function() {
+              $(".nav>li").css({
+                        "border-bottom-style": "solid",
+                        "border-bottom-width": "thin",
+                        "border-bottom-color": "#FFFFFF",
+                        "background-color": "rgba(105, 191, 151, 0)"
+                    });
 
+                    $(".nav>li>a").css({
+                        "color": "#FFFFFF"
+                    });
+
+                    $("li.current-menu-item>a").css({
+                        "background-color": "#FFFFFF",
+                        "color": "#69BF97"
+                    });
+
+                    $("li.current_page_item>a").css({
+                        "background-color": "#FFFFFF",
+                        "color": "#69BF97"
+                    });
+
+                    $("li.current_page_ancestor>a").css({
+                        "background-color": "#FFFFFF",
+                        "color": "#69BF97"
+                    });
+         },
+        offset: $(".header").height()
+    })
     
-///===== Starts static, top: 0 ---> absolute, top scrollTop() ; var mytop = scrollTop()
-var waypoint1 = new Waypoint({
-  element: document.getElementById('waypoint1'),
-  handler: function(direction) {  
-      if(direction == "down") {
+    var waypoint1 = new Waypoint({
+            element: document.getElementById('waypoint1'),
+            handler: function (direction) {
+                if (direction == "down") {
 
-      $(".static").addClass("to-next");
-      $(".static").css({
-          top: $(window).scrollTop()
-      });
-      } else {
-          $(".static").removeClass("to-next");
-       $(".static").css({
-          top: 0
-      });
-      }
-  }
-})
-///===== Starts absolute, top scrollTop() ---> static, top: -100vh ; var hite = -100vh
-var waypoint2 = new Waypoint({
-  element: document.getElementById('waypoint2'),
-  handler: function(direction) {
+                    $(".nav>li").css({
+                        "border-bottom-style": "solid",
+                        "border-bottom-width": "thin",
+                        "border-bottom-color": "#69BF97"
+                    });
 
-      if(direction == "down") {
-     $(".static").removeClass("to-next");
-       $(".static").css({
-          top: 0 - $("#old-history").height()
-      });
-      } else {
-          $(".static").addClass("to-next");
-      $(".static").css({
-          top: $(window).scrollTop() - $("#old-history").height()
-      });
-      }
-      
-  }
-})
-///===== Starts static, top: -100vh ---> absolute, top: scrollTop() - 100vh ; var mytop = scrollTop() - 100vh
-var waypoint3 = new Waypoint({
-  element: document.getElementById('waypoint3'),
-  handler: function(direction) {
-  
-      if(direction == "down") {
+                    $(".nav>li>a").css({
+                        "color": "#69BF97"
+                    });
 
-      $(".static").addClass("to-next");
-      $(".static").css({
-          top: $(window).scrollTop() - $("#old-history").height()
-      });
-      } else {
-          $(".static").removeClass("to-next");
-       $(".static").css({
-          top: 0 - $("#old-history").height()
-      });
-      }
-      
-  }
-})
+                    $("li.current-menu-item>a").css({
+                        "background-color": "#69BF97",
+                        "color": "#FFFFFF"
+                    });
 
-///===== Starts absolute, top scrollTop() ---> static, top: -200vh ; var hite = -200vh
-var waypoint4 = new Waypoint({
-  element: document.getElementById('waypoint4'),
-  handler: function(direction) {
+                    $("li.current_page_item>a").css({
+                        "background-color": "#69BF97",
+                        "color": "#FFFFFF"
+                    });
 
-      if(direction == "down") {
-     $(".static").removeClass("to-next");
-       $(".static").css({
-          top: 0 - 2*$("#old-history").height()
-      });
-      } else {
-          $(".static").addClass("to-next");
-      $(".static").css({
-          top: $(window).scrollTop() - 2*$("#old-history").height()
-      });
-      }
-      
-  }
-})
+                    $("li.current_page_ancestor>a").css({
+                        "background-color": "#69BF97",
+                        "color": "#FFFFFF"
+                    });
 
-///===== Starts static, top: -100vh ---> absolute, top: scrollTop() - 200vh ; var mytop = scrollTop() - 200vh
-var waypoint5 = new Waypoint({
-  element: document.getElementById('waypoint5'),
-  handler: function(direction) {
 
-      if(direction == "down") {
+                } else {
+                    $(".nav>li").css({
+                        "border-bottom-style": "solid",
+                        "border-bottom-width": "thin",
+                        "border-bottom-color": "#FFFFFF",
+                        "background-color": "rgba(105, 191, 151, 0)"
+                    });
 
-      $(".static").addClass("to-next");
-      $(".static").css({
-          top: $(window).scrollTop() - 2*$("#old-history").height()
-      });
-      } else {
-          $(".static").removeClass("to-next");
-       $(".static").css({
-          top: 0 - 2*$("#old-history").height()
-      });
-      }
-      
-  }
-})
+                    $(".nav>li>a").css({
+                        "color": "#FFFFFF"
+                    });
 
-///===== Starts absolute, top scrollTop() ---> static, top: -300vh ; var hite = -300vh
-var waypoint6 = new Waypoint({
-  element: document.getElementById('waypoint6'),
-  handler: function(direction) {
+                    $("li.current-menu-item>a").css({
+                        "background-color": "#FFFFFF",
+                        "color": "#69BF97"
+                    });
 
-      console.log($(window).scrollTop());
- 
-      if(direction == "down") {
-     $(".static").removeClass("to-next");
-       $(".static").css({
-          top: 0 - 3*$("#old-history").height()
-      });
-      } else {
-          $(".static").addClass("to-next");
-      $(".static").css({
-          top: $(window).scrollTop() - 3*$("#old-history").height()
-      });
-      }
-      
-  }
-})
-    
-    
+                    $("li.current_page_item>a").css({
+                        "background-color": "#FFFFFF",
+                        "color": "#69BF97"
+                    });
+
+                    $("li.current_page_ancestor>a").css({
+                        "background-color": "#FFFFFF",
+                        "color": "#69BF97"
+                    });
+
+                }
+            },
+            offset: 100
+        })
+        ///===== Starts absolute, top scrollTop() ---> static, top: -100vh
+    var waypoint2 = new Waypoint({
+            element: document.getElementById('waypoint2'),
+            handler: function (direction) {
+
+                if (direction == "down") {
+                    $(".static").removeClass("to-next");
+                    $(".static").css({
+                        top: 0 - $("#old-history").height()
+                    });
+                } else {
+                    $(".static").addClass("to-next");
+                    $(".static").css({
+                        top: $(window).scrollTop() - $("#old-history").height()
+                    });
+                }
+
+            },
+
+            offset: 0
+        })
+        ///===== Starts static, top: -100vh ---> absolute, top: scrollTop() - 100vh
+    var waypoint3 = new Waypoint({
+        element: document.getElementById('waypoint3'),
+        handler: function (direction) {
+
+            if (direction == "down") {
+
+                $(".static").addClass("to-next");
+                $(".static").css({
+                    top: $(window).scrollTop() - $("#old-history").height()
+                });
+
+            } else {
+                $(".static").removeClass("to-next");
+                $(".static").css({
+                    top: 0 - $("#old-history").height()
+                });
+
+            }
+
+        },
+
+        offset: 50
+    })
+
+
+    ///===== Starts absolute, top scrollTop() ---> static, top: -200vh
+    var waypoint4 = new Waypoint({
+        element: document.getElementById('waypoint4'),
+        handler: function (direction) {
+
+            if (direction == "down") {
+                $(".static").removeClass("to-next");
+                $(".static").css({
+                    top: 0 - 2 * $("#old-history").height()
+                });
+            } else {
+                $(".static").addClass("to-next");
+                $(".static").css({
+                    top: $(window).scrollTop() - 2 * $("#old-history").height()
+                });
+            }
+
+        },
+
+        offset: 50
+    })
+
+    ///===== Starts static, top: -200vh ---> absolute, top: scrollTop() - 200vh
+    var waypoint5 = new Waypoint({
+        element: document.getElementById('waypoint5'),
+        handler: function (direction) {
+
+            if (direction == "down") {
+
+                $(".static").addClass("to-next");
+                $(".static").css({
+                    top: $(window).scrollTop() - 2 * $("#old-history").height()
+                });
+            } else {
+                $(".static").removeClass("to-next");
+                $(".static").css({
+                    top: 0 - 2 * $("#old-history").height()
+                });
+            }
+
+        },
+
+        offset: 50
+    })
+
+    ///===== Starts absolute, top scrollTop() ---> static, top: -300vh
+    var waypoint6 = new Waypoint({
+        element: document.getElementById('waypoint6'),
+        handler: function (direction) {
+
+            console.log($(window).scrollTop());
+
+            if (direction == "down") {
+                $(".static").removeClass("to-next");
+                $(".static").css({
+                    top: 0 - 3 * $("#old-history").height()
+                });
+            } else {
+                $(".static").addClass("to-next");
+                $(".static").css({
+                    top: $(window).scrollTop() - 3 * $("#old-history").height()
+                });
+            }
+
+        },
+
+        offset: 50
+    })
+
+    ///===== Starts static, top: -300vh ---> absolute, top: scrollTop() - 300vh
+    var waypoint7 = new Waypoint({
+        element: document.getElementById('waypoint7'),
+        handler: function (direction) {
+
+            if (direction == "down") {
+
+                $(".static").addClass("to-next");
+                $(".static").css({
+                    top: $(window).scrollTop() - 3 * $("#old-history").height()
+                });
+            } else {
+                $(".static").removeClass("to-next");
+                $(".static").css({
+                    top: 0 - 3 * $("#old-history").height()
+                });
+            }
+
+        },
+
+        offset: 50
+    })
+
+    ///===== 
+
+    var waypointend = new Waypoint({
+        element: document.getElementById('waypoint-end'),
+        handler: function (direction) {
+
+            if (direction == "down") {
+                $(".nav>li").css({
+                    "border-bottom-style": "solid",
+                    "border-bottom-width": "thin",
+                    "border-bottom-color": "#FFFFFF"
+                });
+
+                $(".nav>li>a").css({
+                    "color": "#FFFFFF"
+                });
+
+                $("li.current-menu-item>a").css({
+                    "background-color": "#FFFFFF",
+                    "color": "#69BF97"
+                });
+
+                $("li.current_page_item>a").css({
+                    "background-color": "#FFFFFF",
+                    "color": "#69BF97"
+                });
+
+                $("li.current_page_ancestor>a").css({
+                    "background-color": "#FFFFFF",
+                    "color": "#69BF97"
+                });
+            } else {
+                $(".nav>li").css({
+                    "border-bottom-style": "solid",
+                    "border-bottom-width": "thin",
+                    "border-bottom-color": "#69BF97"
+                });
+
+                $(".nav>li>a").css({
+                    "color": "#69BF97"
+                });
+
+                $("li.current-menu-item>a").css({
+                    "background-color": "#69BF97",
+                    "color": "#FFFFFF"
+                });
+
+                $("li.current_page_item>a").css({
+                    "background-color": "#69BF97",
+                    "color": "#FFFFFF"
+                });
+
+                $("li.current_page_ancestor>a").css({
+                    "background-color": "#69BF97",
+                    "color": "#FFFFFF"
+                });
+
+            }
+        },
+
+        offset: 60
+    });
+
+
+    /*     
+      ///===== Starts absolute, top scrollTop() ---> static, top: -400vh
+      var waypoint8 = new Waypoint({
+        element: document.getElementById('waypoint8'),
+        handler: function(direction) {
+       
+            if(direction == "down") {
+           $(".static").removeClass("to-next");
+             $(".static").css({
+                top: 0 - 4*$("#old-history").height()
+            });
+            } else {
+                $(".static").addClass("to-next");
+            $(".static").css({
+                top: $(window).scrollTop() - 4*$("#old-history").height()
+            });
+            }
+            
+        }
+      })
+
+      ///===== Starts static, top: -400vh ---> absolute, top: scrollTop() - 400vh
+      var waypoint9 = new Waypoint({
+        element: document.getElementById('waypoint9'),
+        handler: function(direction) {
+
+            if(direction == "down") {
+
+            $(".static").addClass("to-next");
+            $(".static").css({
+                top: $(window).scrollTop() - 4*$("#old-history").height()
+            });
+            } else {
+                $(".static").removeClass("to-next");
+             $(".static").css({
+                top: 0 - 4*$("#old-history").height()
+            });
+            }
+            
+        }
+      })
+      */
+
+    var map = new GMaps({
+        div: '#map',
+        lat: -12.043333,
+        lng: -77.028333
+    });
 
 
 }); /* end of as page load scripts */

@@ -25,13 +25,13 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'basic-page cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-								<header class="article-header">
+				<!--				<header class="article-header">
 
 									<h1 class="page-title"><?php the_title(); ?></h1>
 
 
 								</header>
-
+                -->
 								<section class="entry-content cf" itemprop="articleBody">
 									<?php
 										// the content (pretty self explanatory huh)

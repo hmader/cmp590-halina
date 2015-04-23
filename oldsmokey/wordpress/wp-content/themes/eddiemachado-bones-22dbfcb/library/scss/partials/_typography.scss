@@ -41,6 +41,39 @@ FONT FACE (IN YOUR FACE)
 */
 
 
+ @font-face {
+      font-family: 'Lemon Milk';
+      src: url('library/fonts/LemonMilk.otf');
+      src: url('library/fonts/LemonMilk.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+@font-face {
+      font-family: 'Merriweather';
+      src: url('library/fonts/Merriweather-Regular.ttf');
+      src: url('library/fonts/Merriweather-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+@font-face {
+      font-family: 'Merriweather';
+      src: url('library/fonts/Merriweather-Heavy.ttf');
+      src: url('library/fonts/Merriweather-Heavy.ttf') format('truetype');
+      font-weight: 900;
+      font-style: oblique;
+  }
+
+@font-face {
+      font-family: 'Lato';
+      src: url('library/fonts/Lato-Bold.ttf');
+      src: url('library/fonts/Lato-Bold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+
 /*
 The following is based of Typebase:
 https://github.com/devinhunt/typebase.css

@@ -496,6 +496,30 @@ FONT FACE (IN YOUR FACE)
       font-style: normal;
   }
 */
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url("library/fonts/LemonMilk.otf");
+  src: url("library/fonts/LemonMilk.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Merriweather';
+  src: url("library/fonts/Merriweather-Regular.ttf");
+  src: url("library/fonts/Merriweather-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Merriweather';
+  src: url("library/fonts/Merriweather-Heavy.ttf");
+  src: url("library/fonts/Merriweather-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: oblique; }
+@font-face {
+  font-family: 'Lato';
+  src: url("library/fonts/Lato-Bold.ttf");
+  src: url("library/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 /*
 The following is based of Typebase:
 https://github.com/devinhunt/typebase.css
@@ -1247,9 +1271,9 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Merriweather";
   font-size: 100%;
-  line-height: 1.5;
+  line-height: 1.75;
   color: #333333;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -1357,7 +1381,7 @@ h5,
 
 h1,
 .h1 {
-  font-size: 2.5em;
+  font-size: 4em;
   line-height: 1.333em; }
 
 h2,
@@ -1389,9 +1413,6 @@ HEADER STYLES
   display: flex;
   flex-direction: row;
   padding: 1em; }
-
-.header {
-  background-color: #333333; }
 
 #logo {
   margin: 0; }
@@ -1433,9 +1454,20 @@ and more scalable.
 			the style.scss file where it's relevant. We want to
 			keep this file as small as possible!
 			*/ }
+      .nav li a:hover, .nav li a:focus {
+        background-color: #69BF97;
+        color: #fff;
+        text-decoration: none;
+        border: 0;
+        outline: none; }
     .nav li ul.sub-menu li a,
     .nav li ul.children li a {
       padding-left: 30px; }
+  .nav li.current-menu-item a,
+  .nav li.current_page_item a,
+  .nav li.current_page_ancestor a {
+    background-color: #69BF97;
+    color: #fff; }
 
 /* end .nav */
 /*********************
@@ -1445,7 +1477,8 @@ POSTS & CONTENT STYLES
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  min-height: 100vh; }
 
 .hentry {
   background-color: #fff;
@@ -1818,12 +1851,56 @@ h2 {
 /*********************
 HEADER STYLES
 *********************/
+#inner-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: .75em; }
+
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 5; }
+
+#logo {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  margin: 0;
+  font-size: 1.5em; }
+  #logo a {
+    color: #333333;
+    opacity: 1;
+    text-decoration: none; }
+
+.nav li a {
+  font-family: "Lato";
+  color: #69BF97;
+  opacity: 1;
+  padding: .75em 1em;
+  margin: 0 2em;
+  text-transform: uppercase;
+  transition: .5s;
+  text-decoration: none;
+  outline: none;
+  border: 0; }
+
+.nav li {
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: #69BF97; }
+
 /*********************
 NAVIGATION STYLES
 *********************/
 /*********************
 POSTS & CONTENT STYLES
 *********************/
+.break {
+  width: 100%;
+  height: 0; }
+
 .homepage-wrap {
   width: 100%;
   margin: 0; }
@@ -1844,58 +1921,191 @@ POSTS & CONTENT STYLES
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
-    padding: 2em 5em;
+    min-height: 75vh;
+    padding: 5em;
     text-align: center;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300; }
   .basic-page .basic-bottom {
-    background: #3C3C42;
+    width: 100%;
+    background: #333333;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1em 2em;
-    color: #fff; }
-    .basic-page .basic-bottom .qGroup {
-      display: flex;
-      flex-direction: row;
-      margin: 1em 2em;
-      color: #fff; }
-    .basic-page .basic-bottom .Q {
-      align-self: flex-start;
-      width: 40%;
-      padding: 1em;
-      font-style: italic; }
-    .basic-page .basic-bottom .A {
-      align-self: flex-end;
-      width: 60%;
-      padding: 1em; }
-    .basic-page .basic-bottom hr {
-      margin: 0 2em 2em 2em; }
+    color: #fff;
+    /*    .qGroup {
+        display: flex;
+        flex-direction: row;
+        margin: 1em 2em;
+        color: #fff;
+    }
+    .Q {
+        align-self: flex-start;
+        width: 40%;
+        padding: 1em;
+        font-style: italic;
+    }
+    .A {
+        align-self: flex-end;
+        width: 60%;
+        padding: 1em;
+    }
+    */ }
   .basic-page .article-footer {
     padding: 0; }
+  .basic-page .video-only iframe {
+    height: 70vh;
+    width: 90vw; }
+  .basic-page .collapse-card {
+    text-align: center;
+    background: #333333;
+    color: #fff; }
+  .basic-page .collapse-card.active {
+    z-index: 200;
+    margin: 1rem -1rem;
+    background: #fff;
+    color: #333333; }
+  .basic-page .collapse-card__body {
+    padding: 0 3em 2em 3em; }
+  .basic-page .map-wrap {
+    width: 100%;
+    height: 15em; }
+  .basic-page .address-wrap {
+    display: flex;
+    flex-direction: row; }
+  .basic-page .address-group {
+    display: flex;
+    padding: 2em 5em;
+    flex-direction: column;
+    width: 100%; }
+  .basic-page strong {
+    font-style: normal; }
+  .basic-page .hButton {
+    font-size: 1em;
+    padding: .8em 1.5em;
+    margin: 2em 0;
+    background: #fff;
+    border: 1px solid #333333;
+    border-radius: .5;
+    transition: .5s; }
+  .basic-page .hButton:hover {
+    background: #333333;
+    border: 1px solid #fff;
+    color: #fff; }
+
+body.home {
+  width: 100%;
+  height: 100vh;
+  font-size: 100%; }
+
+span {
+  font-size: 1.1em;
+  font-weight: 900; }
+
+span.white {
+  color: #FFFFFF; }
+
+.homepage-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  background-image: url(/wp-content/uploads/2015/04/osm_12.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .homepage-intro .inner {
+    background-color: rgba(105, 191, 151, 0.5);
+    width: 100%;
+    height: 100vh;
+    padding-top: 7em;
+    padding-right: 5em;
+    color: #fff; }
+    .homepage-intro .inner h1 {
+      font-family: "Lemon Milk"; }
+    .homepage-intro .inner section {
+      width: 50%;
+      float: right;
+      font-size: 1.1em;
+      line-height: 1.5em;
+      font-weight: 900; }
 
 .homepage-text-column {
-  padding: 0; }
+  padding: 0;
+  border: none;
+  float: left;
+  webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out; }
 
 .homepage-photo-column {
   align-self: flex-end;
   margin: 0;
-  padding: 0; }
+  padding: 0 0 0 0; }
+  .homepage-photo-column div {
+    padding: 1em; }
+
+.homepage-end-text {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 5em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 900;
+  line-height: 1.5em;
+  background: #333333;
+  color: #fff;
+  margin-top: 1em; }
+
+.homepage-end-photo {
+  margin: 0 1.5em; }
+  .homepage-end-photo div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: rgba(105, 191, 151, 0.5); }
+    .homepage-end-photo div p {
+      padding: 3em 1em;
+      margin: 0 2em;
+      font-size: 1.1em;
+      font-weight: 900;
+      line-height: 1.5em;
+      color: #fff; }
 
 .full-view {
-  height: 100vh; }
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .full-view img {
+    max-width: 80%; }
 
 .static {
   width: 50%;
   height: 100vh;
   position: fixed;
-  top: 0;
-  padding: 5em 5em; }
+  padding: 0; }
+
+.content-p {
+  padding: 0 5em; }
+
+.white-text {
+  color: #fff; }
 
 .to-next {
   position: absolute;
-  width: 50%; }
+  width: 50%;
+  padding: 0; }
+
+.dark-back {
+  background: #333333;
+  color: #69BF97; }
 
 /******************************************************************
 PAGE NAVI STYLES
