@@ -140,13 +140,18 @@ function bones_scripts_and_styles() {
       
       // Paper-collapse
 		wp_register_script( 'bones-paper-collapse', get_stylesheet_directory_uri() . '/library/js/libs/paper-collapse.js', array(), '4.0', false );
-      
-		// register main stylesheet
-		wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
+      // Responsive-nav
+		wp_register_script( 'bones-responsive-nav', get_stylesheet_directory_uri() . '/library/js/libs/responsive-nav.min.js', array(), '4.0', false );
+      
       // register paper-collapse stylesheet
 		wp_register_style( 'paper-collapse-stylesheet', get_stylesheet_directory_uri() . '/library/css/paper-collapse.css', array(), '', 'all' );
+      
+      // register responsive-nav stylesheet
+		wp_register_style( 'responsive-nav-stylesheet', get_stylesheet_directory_uri() . '/library/css/responsive-nav.css', array(), '1.0.39', 'all' );
 
+      // register main stylesheet
+		wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
       
 		// ie-only style sheet
 		wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -166,6 +171,8 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'bones-waypoints' );
         wp_enqueue_script( 'bones-gmaps' );
       wp_enqueue_script( 'bones-paper-collapse' );
+      wp_enqueue_script( 'bones-responsive-nav' );
+      wp_enqueue_style( 'responsive-nav-stylesheet' );
       wp_enqueue_style( 'paper-collapse-stylesheet' );
       wp_enqueue_style( 'bones-stylesheet' );
 		wp_enqueue_style( 'bones-ie-only' );

@@ -66,10 +66,18 @@ FONT FACE (IN YOUR FACE)
   }
 
 @font-face {
-      font-family: 'Lato';
-      src: url('library/fonts/Lato-Bold.ttf');
-      src: url('library/fonts/Lato-Bold.ttf') format('truetype');
-      font-weight: normal;
+      font-family: 'Montserrat';
+      src: url('library/fonts/Montserrat-Bold.ttf');
+      src: url('library/fonts/Montserrat-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: oblique;
+  }
+
+@font-face {
+      font-family: 'Montserrat';
+      src: url('library/fonts/Montserrat-Regular.ttf');
+      src: url('library/fonts/Montserrat-Regular.ttf') format('truetype');
+      font-weight: 400;
       font-style: normal;
   }
 

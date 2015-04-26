@@ -127,20 +127,16 @@ jQuery(document).ready(function ($) {
         scrollTop: 0
     }, "slow");
 
-    // Collapse cards
-    $('.collapse-card').paperCollapse();
+    // Responsive nav
+ 
 
     // Gmaps
 
     //----------------------------------------------------//     
     ///---------taking care of the offset-----------------///
     //----------------------------------------------------//     
-    var shiftedTop = $("#old-history").height() + $(".header").height();
-
-    $(".static").css({
-        top: shiftedTop
-    });
-
+    var shiftedTop = $(".homepage-intro").height();
+    
     $(".static").addClass("to-next");
 
     $(".homepage-photo-column").css({
@@ -258,12 +254,12 @@ jQuery(document).ready(function ($) {
                 if (direction == "down") {
                     $(".static").removeClass("to-next");
                     $(".static").css({
-                        top: 0 - $("#old-history").height()
+                        top: 0 - $(".homepage-intro").height()
                     });
                 } else {
                     $(".static").addClass("to-next");
                     $(".static").css({
-                        top: $(window).scrollTop() - $("#old-history").height()
+                        top: shiftedTop
                     });
                 }
 
@@ -280,13 +276,13 @@ jQuery(document).ready(function ($) {
 
                 $(".static").addClass("to-next");
                 $(".static").css({
-                    top: $(window).scrollTop() - $("#old-history").height()
+                    top: $(window).scrollTop() - $(".homepage-intro").height()
                 });
 
             } else {
                 $(".static").removeClass("to-next");
                 $(".static").css({
-                    top: 0 - $("#old-history").height()
+                    top: 0 - $(".homepage-intro").height()
                 });
 
             }
@@ -305,12 +301,12 @@ jQuery(document).ready(function ($) {
             if (direction == "down") {
                 $(".static").removeClass("to-next");
                 $(".static").css({
-                    top: 0 - 2 * $("#old-history").height()
+                    top: 0 - 2 * $(".homepage-intro").height()
                 });
             } else {
                 $(".static").addClass("to-next");
                 $(".static").css({
-                    top: $(window).scrollTop() - 2 * $("#old-history").height()
+                    top: $(window).scrollTop() - 2 * $(".homepage-intro").height()
                 });
             }
 
@@ -328,12 +324,12 @@ jQuery(document).ready(function ($) {
 
                 $(".static").addClass("to-next");
                 $(".static").css({
-                    top: $(window).scrollTop() - 2 * $("#old-history").height()
+                    top: $(window).scrollTop() - 2 * $(".homepage-intro").height()
                 });
             } else {
                 $(".static").removeClass("to-next");
                 $(".static").css({
-                    top: 0 - 2 * $("#old-history").height()
+                    top: 0 - 2 * $(".homepage-intro").height()
                 });
             }
 
@@ -352,12 +348,12 @@ jQuery(document).ready(function ($) {
             if (direction == "down") {
                 $(".static").removeClass("to-next");
                 $(".static").css({
-                    top: 0 - 3 * $("#old-history").height()
+                    top: 0 - 3 * $(".homepage-intro").height()
                 });
             } else {
                 $(".static").addClass("to-next");
                 $(".static").css({
-                    top: $(window).scrollTop() - 3 * $("#old-history").height()
+                    top: $(window).scrollTop() - 3 * $(".homepage-intro").height()
                 });
             }
 
@@ -375,12 +371,12 @@ jQuery(document).ready(function ($) {
 
                 $(".static").addClass("to-next");
                 $(".static").css({
-                    top: $(window).scrollTop() - 3 * $("#old-history").height()
+                    top: $(window).scrollTop() - 3 * $(".homepage-intro").height()
                 });
             } else {
                 $(".static").removeClass("to-next");
                 $(".static").css({
-                    top: 0 - 3 * $("#old-history").height()
+                    top: 0 - 3 * $(".homepage-intro").height()
                 });
             }
 

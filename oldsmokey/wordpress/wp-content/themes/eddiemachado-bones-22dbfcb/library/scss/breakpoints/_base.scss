@@ -235,7 +235,9 @@ HEADER STYLES
     padding: 1em;
 }
 
-.header {}
+.header {
+    z-index: 50;
+}
 
 #logo {
     margin: 0;
@@ -949,7 +951,7 @@ HEADER STYLES
 }
 
 .nav li a {
-    font-family: "Lato";
+    font-family: "Montserrat";
     color: $ossc-theme;
     opacity: 1;
     padding: .75em 1em;
@@ -962,9 +964,9 @@ HEADER STYLES
 }
 
 .nav li {
-  border-bottom-style: solid;
-                    border-bottom-width: thin;
-                    border-bottom-color: $ossc-theme;   
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: $ossc-theme;
 }
 /*********************
 NAVIGATION STYLES
@@ -1003,7 +1005,7 @@ POSTS & CONTENT STYLES
         min-height: 75vh;
         padding: 5em;
         text-align: center;
-        font-family: $lato;
+        font-family: "Merriweather";
         font-weight: 300;
     }
     .basic-bottom {
@@ -1012,34 +1014,44 @@ POSTS & CONTENT STYLES
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 1em 2em;
+        padding: 1em 5em;
         color: $white;
-        /*    .qGroup {
-            display: flex;
-            flex-direction: row;
-            margin: 1em 2em;
-            color: #fff;
+        .qGroup {
+            padding: 2em 1em;
         }
         .Q {
-            align-self: flex-start;
-            width: 40%;
-            padding: 1em;
-            font-style: italic;
+            font-size: 1.5em;
+            color: $ossc-theme;
+            font-family: "Montserrat";
+            font-weight: 400;
         }
         .A {
-            align-self: flex-end;
-            width: 60%;
-            padding: 1em;
+            padding: 2em 0;
         }
-        */
+        hr {
+            border-color: $ossc-theme;
+            margin: .75em;
+        }
     }
     .article-footer {
         padding: 0;
     }
     .video-only {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        background: url(/wp-content/uploads/2015/04/smoke03.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin: 0;
         iframe {
-            height: 70vh;
-            width: 90vw;
+            height: 60vh;
+            min-width: 60vw;
         }
     }
     .collapse-card {
@@ -1063,6 +1075,14 @@ POSTS & CONTENT STYLES
     .address-wrap {
         display: flex;
         flex-direction: row;
+    }
+    .button-wrap {
+        display: flex;
+        flex-direction: row;
+        button {
+            font-family: "Montserrat";
+            margin: 1em;
+        }
     }
     .address-group {
         display: flex;
@@ -1093,14 +1113,20 @@ body.home {
     width: 100%;
     height: 100vh;
     font-size: 100%;
+    background: url(/wp-content/uploads/2015/04/smoke03.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 span {
- font-size: 1.1em;  
+    font-size: 1.1em;
     font-weight: 900;
 }
 
-span.green {
+.green {
+    color: $ossc-theme;
 }
 
 span.white {
@@ -1116,24 +1142,22 @@ span.white {
     background-repeat: no-repeat;
     background-size: cover;
     .inner {
-     background-color: rgba(105, 191, 151, .5);
+        background-color: rgba(105, 191, 151, .5);
         width: 100%;
         height: 100vh;
         padding-top: 7em;
-    padding-right: 5em;
+        padding-right: 5em;
         color: $white;
-    
         h1 {
-    font-family: "Lemon Milk";
-    }
-    section {
-        width: 50%;
-        float: right;
-        font-size: 1.1em;
-        line-height: 1.5em;
-        font-weight: 900;
-    }
-    
+            font-family: "Lemon Milk";
+        }
+        section {
+            width: 50%;
+            float: right;
+            font-size: 1.1em;
+            line-height: 1.5em;
+            font-weight: 900;
+        }
     }
 }
 
@@ -1141,8 +1165,6 @@ span.white {
     padding: 0;
     border: none;
     float: left;
-    webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
 }
 
 .homepage-photo-column {
@@ -1165,9 +1187,19 @@ span.white {
     font-size: 1.1em;
     font-weight: 900;
     line-height: 1.5em;
-    background: $black;
+    background: rgba(51, 51, 51, .7);
     color: $white;
-    margin-top: 1em;
+    //margin-top: 1em;
+}
+
+.full-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background: $white;
 }
 
 .homepage-end-photo {
@@ -1197,7 +1229,6 @@ span.white {
     display: flex;
     justify-content: center;
     align-items: center;
-    
     img {
         max-width: 80%;
     }
@@ -1225,10 +1256,17 @@ span.white {
 }
 
 .dark-back {
-    background: $black;
+    background-color: $black;
     color: $ossc-theme;
 }
 
+.white-back {
+    background: $white;
+}
+
+.dark-back-op {
+    background: rgba(51, 51, 51, .7);
+}
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
