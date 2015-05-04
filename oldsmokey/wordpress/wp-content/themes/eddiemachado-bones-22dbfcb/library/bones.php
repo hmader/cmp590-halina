@@ -132,23 +132,18 @@ function bones_scripts_and_styles() {
       // Waypoints
 		wp_register_script( 'bones-waypoints', get_stylesheet_directory_uri() . '/library/js/libs/noframework.waypoints.min.js', array(), '3.1.1', false );
       
-       // Gmaps
-		wp_register_script( 'bones-gmaps', get_stylesheet_directory_uri() . '/library/js/libs/gmaps.js', array(), '4.17', false );
+      // Modal js files
+		wp_register_script( 'bones-modal-classie', get_stylesheet_directory_uri() . '/library/js/libs/classie.js', array(), '', false );
       
-      // Googlemaps
-      		wp_register_script( 'bones-googlemaps',  'http://maps.google.com/maps/api/js?sensor=true', array(), '', false );
+      wp_register_script( 'bones-modal-css-filters-polyfill', get_stylesheet_directory_uri() . '/library/js/libs/css-filters-polyfill.js', array(), '', false );
       
-      // Paper-collapse
-		wp_register_script( 'bones-paper-collapse', get_stylesheet_directory_uri() . '/library/js/libs/paper-collapse.js', array(), '4.0', false );
-
-      // Responsive-nav
-		wp_register_script( 'bones-responsive-nav', get_stylesheet_directory_uri() . '/library/js/libs/responsive-nav.min.js', array(), '4.0', false );
+         wp_register_script( 'bones-modal-cssParser', get_stylesheet_directory_uri() . '/library/js/libs/cssParser.js', array(), '', false );
       
-      // register paper-collapse stylesheet
-		wp_register_style( 'paper-collapse-stylesheet', get_stylesheet_directory_uri() . '/library/css/paper-collapse.css', array(), '', 'all' );
+       wp_register_script( 'bones-modal-modalEffects', get_stylesheet_directory_uri() . '/library/js/libs/modalEffects.js', array(), '', false );
       
-      // register responsive-nav stylesheet
-		wp_register_style( 'responsive-nav-stylesheet', get_stylesheet_directory_uri() . '/library/css/responsive-nav.css', array(), '1.0.39', 'all' );
+      // register modal stylesheets
+		wp_register_style( 'modal-component-stylesheet', get_stylesheet_directory_uri() . '/library/css/component.css', array(), '', 'all' );
+        
 
       // register main stylesheet
 		wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
@@ -167,13 +162,12 @@ function bones_scripts_and_styles() {
 		// enqueue styles and scripts
         wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-modernizr' );
-		wp_enqueue_script( 'bones-googlemaps' );
 		wp_enqueue_script( 'bones-waypoints' );
-        wp_enqueue_script( 'bones-gmaps' );
-      wp_enqueue_script( 'bones-paper-collapse' );
-      wp_enqueue_script( 'bones-responsive-nav' );
-      wp_enqueue_style( 'responsive-nav-stylesheet' );
-      wp_enqueue_style( 'paper-collapse-stylesheet' );
+      //wp_enqueue_script( 'bones-modal-classie' );
+      //wp_enqueue_script( 'bones-modal-css-filters-polyfill' );
+     // wp_enqueue_script( 'bones-modal-cssParser' );
+     // wp_enqueue_style( 'bones-modal-modalEffects' );
+     // wp_enqueue_style( 'modal-component-stylesheet' );
       wp_enqueue_style( 'bones-stylesheet' );
 		wp_enqueue_style( 'bones-ie-only' );
 

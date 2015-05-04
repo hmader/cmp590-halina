@@ -55,7 +55,6 @@ var waitForFinalEvent = (function () {
 // how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
 var timeToWaitForLast = 100;
 
-
 /*
  * Here's an example so you can see how we're using the above function
  *
@@ -127,10 +126,63 @@ jQuery(document).ready(function ($) {
         scrollTop: 0
     }, "slow");
 
-    // Responsive nav
- 
+    
+            var clicked = false;
+    
+    $("#menu-button").click(function() {
 
-    // Gmaps
+            if (clicked == false) {
+                $(".header").css("left", "0");
+                clicked = true;
+                console.log("click");
+            } else {
+                $(".header").css("left", "-100vw");
+             $("#menu-button").css("top", "1em");
+                clicked = false;
+            console.log("click again");
+            }
+
+        });
+    
+    
+     $("#share-button").click(function() {
+         $(".md-overlay").addClass("md-show");
+         $("#modal-share.modal").addClass("md-show");
+     });
+    
+    
+    $("#contact-button").click(function() {
+         $(".md-overlay").addClass("md-show");
+         $("#modal-contact.modal").addClass("md-show");
+     });
+    
+    $(".md-close").click(function() {
+         $(".md-overlay").removeClass("md-show");
+        $("#modal-contact.modal").removeClass("md-show");
+        $("#modal-share.modal").removeClass("md-show");
+     });
+    
+    
+    $(".for-residents").css({
+    "margin-top" : $("#for-residents").height()
+    });
+    
+    $(".become-ossc").css({
+    "margin-top" : $("#about-ossc").height()
+    });
+    
+    $(window).scroll(function () {
+
+            $("#for-residents").css({
+                'opacity': 1 - (($(this).scrollTop()) / 2000)
+            });
+        
+        $("#about-ossc").css({
+                'opacity': 1 - (($(this).scrollTop()) / 1000)
+            });
+    });
+    
+    
 
     //----------------------------------------------------//     
     ///---------taking care of the offset-----------------///
@@ -139,22 +191,17 @@ jQuery(document).ready(function ($) {
     
     $(".static").addClass("to-next");
 
-    $(".homepage-photo-column").css({
-        "padding-top": 0
-    });
-
-    $(window).scroll(function () {
-
-    });
-
 
     ///---------FINISH taking care of the offset---------/// 
-    //----------------------------------------------------//    
+    //----------------------------------------------------// 
+    
     ///===== Starts static, top: 0 ---> absolute, top scrollTop()
     
     var waypointstart = new Waypoint ({
       element: document.getElementById("waypoint-start"), 
          handler: function() {
+             $(".header").css({"background-color": "rgba(105, 191, 151, 0)"});
+             
               $(".nav>li").css({
                         "border-bottom-style": "solid",
                         "border-bottom-width": "thin",
@@ -184,11 +231,15 @@ jQuery(document).ready(function ($) {
         offset: $(".header").height()
     })
     
+      //----------------------------------------------------// 
+    
+   //----------------------------------------------------// 
+    
     var waypoint1 = new Waypoint({
             element: document.getElementById('waypoint1'),
             handler: function (direction) {
                 if (direction == "down") {
-
+                    $(".header").css({"background-color": "rgba(51, 51, 51, .7)"});
                     $(".nav>li").css({
                         "border-bottom-style": "solid",
                         "border-bottom-width": "thin",
@@ -216,6 +267,7 @@ jQuery(document).ready(function ($) {
 
 
                 } else {
+                   $(".header").css({"background-color": "rgba(51, 51, 51, 0)"});
                     $(".nav>li").css({
                         "border-bottom-style": "solid",
                         "border-bottom-width": "thin",
@@ -392,6 +444,7 @@ jQuery(document).ready(function ($) {
         handler: function (direction) {
 
             if (direction == "down") {
+                $(".header").css({"background-color": "rgba(51, 51, 51, 0)"});
                 $(".nav>li").css({
                     "border-bottom-style": "solid",
                     "border-bottom-width": "thin",
@@ -417,6 +470,7 @@ jQuery(document).ready(function ($) {
                     "color": "#69BF97"
                 });
             } else {
+                $(".header").css({"background-color": "rgba(51, 51, 51, .7)"});
                 $(".nav>li").css({
                     "border-bottom-style": "solid",
                     "border-bottom-width": "thin",
@@ -491,12 +545,5 @@ jQuery(document).ready(function ($) {
         }
       })
       */
-
-    var map = new GMaps({
-        div: '#map',
-        lat: -12.043333,
-        lng: -77.028333
-    });
-
 
 }); /* end of as page load scripts */

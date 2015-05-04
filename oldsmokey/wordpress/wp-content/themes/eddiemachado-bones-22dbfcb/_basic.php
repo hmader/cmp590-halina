@@ -17,7 +17,7 @@
 
 			<div id="content">
 
-				<div id="inner-content" class="basic-div-main cf">
+				<div id="basic-div-main" class="cf">
 
 						<main id="main" class="m-all t-all d-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 

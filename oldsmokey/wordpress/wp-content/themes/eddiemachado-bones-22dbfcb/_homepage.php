@@ -15,7 +15,7 @@
 
 <?php get_header(); ?>
 
-			<div id="waypoint-start" class="homepage-page-content">
+			<div id="waypoint-start" class="waypoint homepage-page-content">
 
 				<div id="inner-content" class="homepage-wrap cf">
 
@@ -23,8 +23,8 @@
                             
                             <div class="homepage-intro">
                                 <div class="inner">
-                                <h1>Old Smokey</h1>
-                                <section>                                    
+                                <section>
+                                    <h1>Old Smokey</h1>
                             <p>From 1926 to 1970, the City of Miami (City) operated a solid waste incinerator at 3425 Jefferson Street in West Coconut Grove. Despite persistent complaints and requests for the incinerator to be shut down by West Grove residents, it continued its operation for 44 years.
                                 </p>
                                     </section>
@@ -35,7 +35,7 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf homecontent m-all t-1of2 d-1of2 homepage-text-column' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
                              
-								<section class="cf" itemprop="articleBody">
+								<section class="static cf" itemprop="articleBody">
 									<?php
 										// the content (pretty self explanatory huh)
 										the_content();
@@ -87,45 +87,45 @@
 
 							<?php endif; ?>
                             
-                 <div id="waypoint1" class="homepage-photo-column m-all t-1of2 d-1of2">
-    <div class="full-view white-back">
-        <img src="/wp-content/uploads/2015/04/osm_08.jpg" width="100%">
+                 <div id="waypoint1" class="waypoint homepage-photo-column m-all t-1of2 d-1of2">
+    <div class="full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_08.jpg" width="100%">
     </div>
-    <div id="waypoint2" class="full-view white-back">
-        <img src="/wp-content/uploads/2015/04/osm_04.jpg" width="100%">
+    <div id="waypoint2" class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_04.jpg" width="100%">
     </div>
-    <div class="full-view white-back">
-        <img src="/wp-content/uploads/2015/04/osm_01.jpg" width="100%">
+    <div class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_01.jpg" width="100%">
     </div>                                               
-    <div id="waypoint3" class="full-view white-back">
-        <img src="/wp-content/uploads/2015/04/osm_11.jpg" width="100%">
+    <div id="waypoint3" class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_11.jpg" width="100%">
     </div>
-    <div id="waypoint4" class="full-view dark-back-op">
-        <img src="/wp-content/uploads/2015/04/osm_02.jpg" width="100%">
+    <div id="waypoint4" class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_02.jpg" width="100%">
     </div>
-    <div class="full-view dark-back-op">
-        <img src="/wp-content/uploads/2015/04/osm_09.jpg" width="100%">
+    <div class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_09.jpg" width="100%">
     </div>
-    <div id="waypoint5" class="full-view dark-back-op">
-        <img src="/wp-content/uploads/2015/04/osm_07.jpg" width="100%">
+    <div id="waypoint5" class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_07.jpg" width="100%">
     </div>
-    <div id="waypoint6" class="full-view dark-back-op">
-        <img src="/wp-content/uploads/2015/04/osm_05.jpg" width="100%">
+    <div id="waypoint6" class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_04.jpg" width="100%">
     </div>
-    <div id="waypoint7" class="full-view dark-back-op">
-        <img src="/wp-content/uploads/2015/04/osm_03.jpg" width="100%">
+    <div id="waypoint7" class="waypoint full-view ">
+        <img src="/story/wp-content/uploads/2015/05/osm_03.jpg" width="100%">
     </div>
      <!--                
     <div id="waypoint8" class="full-view">
-        <img src="/wp-content/uploads/2015/04/osm_02.jpg" width="100%">
+        <img src="/story/wp-content/uploads/2015/05/osm_02.jpg" width="100%">
     </div>
     <div id="waypoint9" class="full-view">
-        <img src="/wp-content/uploads/2015/04/osm_10.jpg" width="100%">
+        <img src="/story/wp-content/uploads/2015/05/osm_10.jpg" width="100%">
     </div>
 -->
 </div>
                             <div class="full-wrap">
-                            <div id="waypoint-end" class="homepage-end-photo" style="background-image: url(/wp-content/uploads/2015/04/osm_06.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; clear: both; height: 90vh;">
+                            <div id="waypoint-end" class="waypoint homepage-end-photo">
                                <div>
                                  <p>The numerous soil assessments at the Old Smokey site have continually shown high concentrations of arsenic, lead, barium, cadmium, and PAHs. Spot removal of contamination has occurred at the Old Smokey site but full remediation of the site has not occurred.</p>
                                    </div>

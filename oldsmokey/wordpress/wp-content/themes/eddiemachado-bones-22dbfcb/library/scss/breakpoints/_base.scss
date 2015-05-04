@@ -136,9 +136,13 @@ style a page via class
 LAYOUT & GRID STYLES
 *********************/
 
-.wrap {
-    width: 96%;
-    margin: 0 4em;
+.my-wrap {
+    margin: 150px 4em;
+}
+
+.footer .my-wrap {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 /*********************
 LINK STYLES
@@ -232,7 +236,6 @@ HEADER STYLES
 #inner-header {
     display: flex;
     flex-direction: row;
-    padding: 1em;
 }
 
 .header {
@@ -323,12 +326,22 @@ POSTS & CONTENT STYLES
 
 #content {}
 
-.basic-div-main {
+#basic-div-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+}
+
+#news-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 5em;
+    color: red;
 }
 
 .hentry {
@@ -390,7 +403,8 @@ POSTS & CONTENT STYLES
 /* post meta */
 
 .byline {
-    color: $meta-gray;
+    color: $ossc-theme;
+    font-size: 90%;
     font-style: italic;
     margin: 0;
     time {}
@@ -837,16 +851,41 @@ COMMENT FORM STYLES
 SIDEBARS & ASIDES
 *********************/
 
-.sidebar {}
+.sidebar {
+    button {
+        border: none;
+        padding: 0.6em 1.2em;
+        color: $white;
+        background-color: $black;
+        font-size: 1em;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+    }
+}
 
-.widgettitle {}
+.widgettitle {
+    font-family: "Montserrat";
+    font-weight: 400;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+}
 
 .widget {
+    font-family: "Merriweather";
+    font-weight: 400;
+    font-size: 15px;
     ul {
         li {
             &:first-child {}
             &:last-child {}
-            a {}
+            a {
+                text-decoration: none;
+                color: $black;
+            }
             /* deep nesting */
             
             ul {}
@@ -862,6 +901,111 @@ SIDEBARS & ASIDES
     border-radius: 2px;
     margin-bottom: 1.5em;
 }
+
+#mc_embed_signup_scroll {
+    p {
+        margin: 0;
+    }
+}
+
+input.email {
+    width: 400px;
+    margin: 0;
+}
+
+div.clear {
+    margin: 0;
+}
+
+.md-overlay {
+	position: fixed;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 1;
+	background: rgba(51,51,51,0.9);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.modal {
+	position: fixed;
+    display: none;
+    opacity: 1;
+	top: 50%;
+	left: 50%;
+    background: $white;
+    color: $black;
+	width: 50%;
+	max-width: 630px;
+	min-width: 320px;
+	height: auto;
+	z-index: 2000;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+    
+    .md-content {
+     padding: 1em 2em 2em; 
+        text-align: center;
+        font-size: 15px;
+        opacity: 1;
+        font-family: "Montserrat";
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        img {
+          margin: 1em;
+            width: 50px;
+            height: 50px;
+        }
+        
+        }
+    }
+    
+     button {
+        border: none;
+        padding: 0.6em 1.2em;
+        color: $white;
+        background-color: $black;
+        font-size: 1em;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+    }   
+    
+    
+    h3 {
+     font-family: "Merriweather";  
+        font-size: 1.55em;
+    }
+}
+
+
+.md-show {
+	visibility: visible;
+    display: flex;
+}
+
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -903,6 +1047,135 @@ GENERAL STYLES
 WORDPRESS BODY CLASSES
 style a page via class
 ********************/
+
+.rtl {}
+/* for sites that are read right to left (i.e. hebrew) */
+
+.home {}
+/* home page */
+
+.blog {}
+/* blog template page */
+
+.archive {}
+/* archive page */
+
+.date {}
+/* date archive page */
+
+.date-paged-1 {}
+/* replace the number to the corresponding page number */
+
+.search {}
+/* search page */
+
+.search-results {}
+/* search result page */
+
+.search-no-results {}
+/* no results search page */
+
+.search-paged-1 {}
+/* individual paged search (i.e. body.search-paged-3) */
+
+.error404 {}
+/* 404 page */
+
+.single {
+    .header {
+        background-color: rgba(255, 255, 255, .9);
+    }
+    article {
+        border: none;
+        header {
+            font-family: "Merriweather";
+            padding: 0 0 2em;
+            border: none;
+            h1 {
+                font-size: 2em;
+            }
+        }
+        section {
+            font-family: "Montserrat";
+            font-weight: 400;
+            font-size: 15px;
+            padding-right: 15%;
+        }
+    }
+}
+/* single post page */
+
+.postid-1 {}
+/* individual post page by id (i.e. body.postid-73) */
+
+.single-paged-1 {}
+/* individual paged single (i.e. body.single-paged-3) */
+
+.attachment {}
+/* attatchment page */
+
+.attachmentid-1 {}
+/* individual attatchment page (i.e. body.attachmentid-763) */
+
+.attachment-mime-type {}
+/* style mime type pages */
+
+.author {}
+/* author page */
+
+.author-nicename {}
+/* user nicename (i.e. body.author-samueladams) */
+
+.author-paged-1 {}
+/* paged author archives (i.e. body.author-paged-4) for page 4 */
+
+.category {}
+/* category page */
+
+.category-1 {}
+/* individual category page (i.e. body.category-6) */
+
+.category-paged-1 {}
+/* replace the number to the corresponding page number */
+
+.tag {}
+/* tag page */
+
+.tag-slug {}
+/* individual tag page (i.e. body.tag-news) */
+
+.tag-paged-1 {}
+/* replace the number to the corresponding page number */
+
+.page-template {}
+/* custom page template page */
+
+.page-template-page-php {}
+/* individual page template (i.e. body.page-template-contact-php */
+
+.page-paged-1 {}
+/* replace the number to the corresponding page number */
+
+.page-parent {}
+/* parent page template */
+
+.page-child {}
+/* child page template */
+
+.parent-pageid-1 {}
+/* replace the number to the corresponding page number */
+
+.logged-in {}
+/* if user is logged in */
+
+.paged {}
+/* paged items like search results or archives */
+
+.paged-1 {}
+/* individual paged (i.e. body.paged-3) */
+/*********************
+LAYOUT & GRID STYLES
+*********************/
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -929,25 +1202,42 @@ HEADER STYLES
     align-items: center;
     justify-content: center;
     padding: .75em;
+    padding-bottom: 0;
 }
 
 .header {
     width: 100%;
     position: fixed;
     z-index: 5;
+    transition: .5s;
+    background-color: rgba(51, 51, 51, .7);
+    #logo {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        margin: 0;
+        font-size: 1.5em;
+        a {
+            color: $black;
+            opacity: 1;
+            text-decoration: none;
+        }
+    }
+    #menu-button {
+        position: fixed;
+        right: 1em;
+        width: 3em;
+        height: 3em;
+        background-color: $ossc-theme;
+        border: solid medium $white;
+        visibility: hidden;
+    }
 }
 
-#logo {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-    margin: 0;
-    font-size: 1.5em;
-    a {
-        color: $black;
-        opacity: 1;
-        text-decoration: none;
-    }
+.nav li {
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: $ossc-theme;
 }
 
 .nav li a {
@@ -961,12 +1251,6 @@ HEADER STYLES
     text-decoration: none;
     outline: none;
     border: 0;
-}
-
-.nav li {
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-bottom-color: $ossc-theme;
 }
 /*********************
 NAVIGATION STYLES
@@ -1003,36 +1287,104 @@ POSTS & CONTENT STYLES
         justify-content: center;
         align-items: center;
         min-height: 75vh;
-        padding: 5em;
-        text-align: center;
+        padding: 15% 10% 10% 10%;
+        text-align: left;
         font-family: "Merriweather";
         font-weight: 300;
     }
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+    #for-residents {
+        position: fixed;
+        display: flex;
+        background-image: url(/story/wp-content/uploads/2015/05/osm_03.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        clear: both;
+        section.basic-top {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 900;
+            line-height: 1.5em;
+            color: $white;
+            text-shadow: 1px 1px 7px rgba(42, 76, 60, 1);
+            background-color: rgba(105, 191, 151, .5);
+        }
+    }
+    
+      #about-ossc {
+        position: fixed;
+        display: flex;
+        background-image: url(/story/wp-content/uploads/2015/05/osm_12-1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        clear: both;
+        section.basic-top {
+            font-size: 1.1em;
+            font-weight: 900;
+            line-height: 1.5em;
+            color: $white;
+            text-shadow: 1px 1px 7px rgba(42, 76, 60, 1);
+            background-color: rgba(105, 191, 151, .5);
+        }
+      }
+
     .basic-bottom {
-        width: 100%;
-        background: $black;
+        position: relative;
+        background: $white;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 1em 5em;
-        color: $white;
+        padding: 1em 0;
+        color: $black;
         .qGroup {
-            padding: 2em 1em;
+            padding: 5% 10%;
         }
         .Q {
-            font-size: 1.5em;
+            padding-top: 1em;
+            font-size: 1.55em;
             color: $ossc-theme;
-            font-family: "Montserrat";
-            font-weight: 400;
         }
         .A {
             padding: 2em 0;
+            color: $black;
+            font-family: "Montserrat";
+            font-weight: 400;
+            font-size: 15px;
         }
         hr {
-            border-color: $ossc-theme;
-            margin: .75em;
+            border-color: $black;
+            margin: 0 10%;
+        }
+    
+    }
+    
+    .become-ossc {
+        padding: 5% 10%;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: flex-start;
+        font-family: "Montserrat";
+        font-size: 15px;
+        
+        p {
+          margin: 5% 0;
+        }
+        
+        h1 {
+         font-family: "Merriweather";
+            padding-top: 1em;
+            font-size: 1.55em;
+            color: $ossc-theme;
+           
         }
     }
+
+    
     .article-footer {
         padding: 0;
     }
@@ -1043,7 +1395,7 @@ POSTS & CONTENT STYLES
         justify-content: center;
         width: 100vw;
         height: 100vh;
-        background: url(/wp-content/uploads/2015/04/smoke03.png) no-repeat center center fixed;
+        background: url(/story/wp-content/uploads/2015/04/smoke03.png) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -1054,48 +1406,24 @@ POSTS & CONTENT STYLES
             min-width: 60vw;
         }
     }
-    .collapse-card {
-        text-align: center;
-        background: $black;
-        color: $white;
-    }
-    .collapse-card.active {
-        z-index: 200;
-        margin: 1rem -1rem;
-        background: $white;
-        color: $black;
-    }
-    .collapse-card__body {
-        padding: 0 3em 2em 3em;
-    }
-    .map-wrap {
-        width: 100%;
-        height: 15em;
-    }
     .address-wrap {
         display: flex;
         flex-direction: row;
+        font-family: "Merriweather";
     }
     .button-wrap {
         display: flex;
         flex-direction: row;
+        margin-bottom: 2em;
         button {
             font-family: "Montserrat";
             margin: 1em;
         }
     }
-    .address-group {
-        display: flex;
-        padding: 2em 5em;
-        flex-direction: column;
-        width: 100%;
-    }
-    strong {
-        font-style: normal;
-    }
-    .hButton {
-        font-size: 1em;
-        padding: .8em 1.5em;
+    
+     .hButton {
+        font-size: 15px;
+        padding: .8em 1.25em;
         margin: 2em 0;
         background: $white;
         border: 1px solid $black;
@@ -1107,17 +1435,70 @@ POSTS & CONTENT STYLES
         border: 1px solid #fff;
         color: $white;
     }
+    
+    .address-group {
+        display: flex;
+        padding: 2em 10%;
+        flex-direction: column;
+    }
+    .address-group.row {
+        flex-direction: row;
+        justify-content: space-between;
+        div {
+            max-width: 200px;
+        }
+    }
+    .address-wrap.column {
+        flex-direction: column;
+        .address-group {
+            padding: 2em 5%;
+        }
+    }
+    strong {
+        font-style: normal;
+    }
+}
+
+#mc_embed_signup {
+    p {
+        padding: 0;
+    }
+    .button {
+        border: none;
+        padding: 0.6em 1.2em;
+        color: $white;
+        background-color: $black;
+        font-size: 15px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 3px 2px;
+        border-radius: 2px;
+    }
+}
+
+.ss-form-container {
+    font-family: "Montserrat";
 }
 
 body.home {
+    font-size: 15px;
     width: 100%;
     height: 100vh;
     font-size: 100%;
-    background: url(/wp-content/uploads/2015/04/smoke03.png) no-repeat center center fixed;
+    background: 
+        linear-gradient(
+      rgba(51, 51, 51, 0.7), 
+      rgba(51, 51, 51, 0.7)
+    ),
+        url(/story/wp-content/uploads/2015/04/smoke03.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    .header {
+        background-color: rgba(255, 255, 255, 0);
+    }
 }
 
 span {
@@ -1137,21 +1518,26 @@ span.white {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    text-align: right;
-    background-image: url(/wp-content/uploads/2015/04/osm_12.jpg);
+    text-align: left;
+    background-image: url(/story/wp-content/uploads/2015/05/osm_12-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     .inner {
         background-color: rgba(105, 191, 151, .5);
         width: 100%;
         height: 100vh;
-        padding-top: 7em;
-        padding-right: 5em;
+        padding: 7em 10%;
         color: $white;
         h1 {
             font-family: "Lemon Milk";
         }
         section {
+            
+             p{
+                text-shadow: 1px 1px 7px rgba(42, 76, 60, 1);
+            }
+            
+            text-align: left;
             width: 50%;
             float: right;
             font-size: 1.1em;
@@ -1180,14 +1566,14 @@ span.white {
     display: flex;
     width: 100%;
     height: 100vh;
-    padding: 5em;
+    padding: 5% 10%;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 1.1em;
     font-weight: 900;
     line-height: 1.5em;
-    background: rgba(51, 51, 51, .7);
+    text-shadow: 1px 1px 7px rgba(42, 76, 60, 1);
     color: $white;
     //margin-top: 1em;
 }
@@ -1203,7 +1589,14 @@ span.white {
 }
 
 .homepage-end-photo {
-    margin: 0 1.5em;
+    display: flex;
+    background-image: url(/story/wp-content/uploads/2015/05/osm_06.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    clear: both;
+    height: 100vh;
+    width: 100%;
     div {
         display: flex;
         justify-content: center;
@@ -1214,8 +1607,7 @@ span.white {
         margin: 0;
         background-color: rgba(105, 191, 151, .5);
         p {
-            padding: 3em 1em;
-            margin: 0 2em;
+            padding: 5% 10%;
             font-size: 1.1em;
             font-weight: 900;
             line-height: 1.5em;
@@ -1230,7 +1622,7 @@ span.white {
     justify-content: center;
     align-items: center;
     img {
-        max-width: 80%;
+        max-width: 75%;
     }
 }
 
@@ -1267,6 +1659,15 @@ span.white {
 .dark-back-op {
     background: rgba(51, 51, 51, .7);
 }
+
+iframe.form {
+    width: 80vw;
+    height: 80vh;
+}
+
+.nav-color-background {
+    background-color: rgba(51, 51, 51, .7);
+}
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -1282,3 +1683,236 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
+
+.footer {
+    position: relative;
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 2em;
+        padding-top: 1.5em;
+    }
+    padding-top: 1em;
+    border-top: solid thin $white;
+    li {
+        border-bottom-style: solid;
+        border-bottom-width: thin;
+        border-bottom-color: #FFFFFF;
+        list-style: none;
+        font-family: "Montserrat";
+        text-transform: uppercase;
+    }
+    li a {
+        background-color: rgba(105, 191, 151, 0);
+        color: $white;
+    }
+    li.current-menu-item,
+    li.current_page_item,
+    li.current_page_ancestor {
+        a {
+            color: $white;
+        }
+    }
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
+    .header {
+        padding: 0;
+        left: -100vw;
+        transition: .5s;
+        #menu-button {
+            visibility: visible;
+            top: 1em;
+        }
+    }
+    #menu-main-menu {
+        bottom: 0;
+        width: 100vw;
+        //visibility: hidden;
+        li {
+            border-bottom-style: solid;
+            border-bottom-width: thin;
+            border-bottom-color: $white;
+            background-color: rgba(51, 51, 51, .7);
+        }
+        li a {
+            margin: 0;
+            color: $white;
+        }
+        li.current-menu-item,
+        li.current_page_item,
+        li.current_page_ancestor {
+            a {
+                background-color: rgba(51, 51, 51, .7);
+                color: $ossc-theme;
+            }
+        }
+    }
+    .main {
+        div {
+            width: 100%;
+        }
+        p {
+            width: 100%;
+        }
+    }
+    .homepage-intro {
+        align-items: center;
+        text-align: center;
+        .inner {
+            padding-top: 5%;
+        }
+        .inner section {
+            text-align: left;
+            float: none;
+            width: 100%;
+        }
+    }
+    .homepage-photo-column {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+        display: none;
+    }
+    .homepage-text-column {
+        .static {
+            width: 100%;
+            position: static;
+        }
+        .content-p {
+            padding: 5% 10%;
+        }
+    }
+    .homepage-end-photo {
+        background-position: left;
+        position: static;
+    }
+    .homepage-end-text {
+        position: static;
+    }
+    .homepage-end-photo div p,
+    .homepage-end-text {
+        text-align: left;
+        padding: 5% 10%;
+    }
+    .address-wrap {
+        flex-direction: column;
+    }
+    .address-group {
+        display: flex;
+        padding: 2em 0;
+        flex-direction: column;
+    }
+    .basic-top {
+        text-align: left;
+    }
+    
+    /*********************
+SIDEBARS & ASIDES
+*********************/
+    
+    .sidebar {}
+    .widgettitle {
+        font-family: "Montserrat";
+        font-weight: 400;
+        border: none;
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    .widget {
+        font-family: "Merriweather";
+        font-weight: 400;
+        font-size: 15px;
+        ul {
+            li {
+                &:first-child {}
+                &:last-child {}
+                a {
+                    text-decoration: none;
+                    color: $black;
+                }
+                /* deep nesting */
+                
+                ul {}
+            }
+        }
+    }
+    
+    input.email {
+    width: 300px;
+    margin: 0;
+}
+    
+    /********************
+WORDPRESS BODY CLASSES
+style a page via class
+********************/
+    
+    .single {
+        article {
+            border: none;
+            header {
+                font-family: "Merriweather";
+                padding: 0 0 2em;
+                border: none;
+                h1 {
+                    font-size: 2em;
+                }
+            }
+            section {
+                font-family: "Montserrat";
+                font-weight: 400;
+                font-size: 15px;
+                padding-right: 0;
+            }
+        }
+    }
+    /*********************
+FOOTER STYLES
+*********************/
+    
+    .footer {
+        nav {
+            flex-direction: column;
+            li {
+                border-bottom-style: solid;
+                border-bottom-width: thin;
+                border-bottom-color: $white;
+                background-color: rgba(51, 51, 51, .7);
+            }
+            li a {
+                margin: 0;
+                color: $white;
+            }
+            li.current-menu-item,
+            li.current_page_item,
+            li.current_page_ancestor {
+                a {
+                    background-color: rgba(51, 51, 51, .7);
+                    color: $ossc-theme;
+                }
+            }
+        }
+        .nav {
+            flex-direction: column;
+        }
+    }
+}
+/* Intermediate */
+
+@media only screen and (max-width: 960px) {
+
+.homepage-intro .inner section {
+    
+    width: 100%;
+    
+        }
+}
+/* Wide */
+
+@media only screen and (min-width: 1140px) {}
